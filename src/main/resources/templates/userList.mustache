@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>List of users</title>
+</head>
+<body>
+<h1>List of users</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th></th>
+    </tr>
+    </thead>
+    {{#users}}
+        <tr>
+            <td><a href="/user/{{id}}">{{username}}</a></td>
+            <td>{{#roles}}{{roles}}{{/roles}}</td>
+            <td><a href="/user/{{id}}">Edit</a></td>
+        </tr>
+    {{/users}}
+    </tbody>
+</table>
+</body>
+</html>

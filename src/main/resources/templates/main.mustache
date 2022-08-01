@@ -1,0 +1,42 @@
+<html>
+
+<body>
+    <div>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <input type="submit" value="Sign Out"/>
+        </form>
+        <span><a href="/user">User List</a></span>
+    </div>
+    <h1>Add films</h1>
+    <div>
+        <form method="post">
+            <input type="text" name="film" placeholder="Enter film name">
+            <input type="text" name="date" placeholder="Enter date of release">
+            <input type="text" name="tag" placeholder="Tag">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <button type="submit">Add</button>
+
+        </form>
+    </div>
+    <h1>List of films</h1>
+    <form method="get" action="/main">
+        <input type="text" name="filter">
+        <button type="submit">Find</button>
+    </form>
+    {{#films}}
+        <div>
+            <b>#{{id}}</b>
+            <br>
+            <span>Film name: {{film}}</span>
+            <br>
+            <span>Release: {{date}}</span>
+            <br>
+            <i>Search by tag: {{tag}}</i>
+            <strong>{{authorName}}</strong>
+            <hr>
+        </div>
+
+    {{/films}}
+</body>
+</html>

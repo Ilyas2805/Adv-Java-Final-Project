@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>List of users</title>
+</head>
+<body>
+<h1>User Editor</h1>
+<form action="/user" method="post">
+    <input type="text" name="username" value="{{user.username}}">
+    {{#roles}}
+        <div>
+            <label><input type="checkbox" name="{{roles}}">{{roles}}</label>
+        </div>
+    {{/roles}}
+    <input type="hidden" value="{{user.id}}" name="userId">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
